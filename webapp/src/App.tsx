@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import LoginForm from './LoginForm';
+import './style.css';
 
-function App() {
+interface AppProps { }
+interface AppState {
+  name: string;
+}
+
+const App = () => {
+  const onSubmitUsername = (username: string, password: string) => alert(`You entered: ${username} and password ${password}`);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div style={{ minWidth: 400 }}>
+        <LoginForm onSubmit={onSubmitUsername} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
